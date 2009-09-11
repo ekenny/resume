@@ -2,21 +2,31 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <title><g:layoutTitle default="Grails" /></title>
-    <link rel="stylesheet" href="${createLinkTo(dir:'css',file:'styles.css')}" />
+    <link rel="stylesheet" href="${createLinkTo(dir:'css',file:'lefty-style.css')}" />
+    <link rel="stylesheet" href="${createLinkTo(dir:'css',file:'resumeapp.css')}" />
     <link rel="shortcut icon" href="${createLinkTo(dir:'images',file:'favicon.ico')}" type="image/x-icon" />
     <g:layoutHead />
     <g:javascript library="application" />
+    <g:javascript library="prototype/prototype" />
+    <g:javascript library="prototype/scriptaculous" />
+    
 	<resource:tagCloud />
   </head>
   <body onload="${pageProperty(name:'body.onload')}" >
     <div id="wrapper">
 
-	<g:link url="/resume">	
-    <div id="header"></div>
-	</g:link>
+    <div id="header">
+        <g:link url="/resume-1.1/index.gsp"  title="It's all about ME... ok, and you too"><span id="headerTitle">ResuMe</span></g:link>
+        <span id="headerRight">
+          Welcome ${person?.firstName} |
+		  <g:link controller="auth" action="signOut">logout</g:link>
+        </span>
+	
+    </div>
 	<jsec:isLoggedIn>
-	<!-- Menu section -->
-    <div id="nav1">
+
+          <!-- Menu section -->
+      <div id="nav1">
 		<ul id="menus">
 		   <li class="current"><g:link action="home" controller="person">Home</g:link></li>
 		   <li><g:link action="list" controller="skill">Skills</g:link></li>
@@ -32,7 +42,8 @@
 			</g:form>
 		</div>
 		</g:if>
-      </div>
+      </div><div class="clear"></div>
+      
 	</jsec:isLoggedIn>
 	
     <div id="content-wrapper">
@@ -42,11 +53,9 @@
 	  <jsec:isLoggedIn>
 
       <div id="sidebar">
-		 <div align="right">
-		  <g:link controller="auth" action="signOut">logout</g:link>
-		 </div>
 		 
-		 <g:if test="${showMyResumes}">
+		 
+		 <!--<g:if test="${showMyResumes}">-->
          <h3>My Resumes</h3> 
 			<div style="text-align:left">
  			  <g:link controller="person" action="createResume">Add Resume</g:link>
@@ -62,18 +71,16 @@
 				  </li>
 	           </g:each>
          	</ul>
-		  </g:if>
+		  <!-- </g:if> -->
 
       </div>
       </jsec:isLoggedIn>
     </div>
-	
+
 	<br/>
     <div id="footer">
-      <p>Design by <a href="http://www.styleshout.com">StyleShout</a> and  <a href="http://www.dotemplate.com">doTemplate</a>
-        &nbsp;&nbsp;
-        Created with <a href="http://www.dotemplate.com">doTemplate</a>
-      </p>
+      <p>Copyright &copy; 2009 <a href="http://www.centricconsulting.com">Centric Consulting</a></p>
+    </div>
     </div>
   </body>
 </html>

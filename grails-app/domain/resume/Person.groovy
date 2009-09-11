@@ -10,7 +10,10 @@ class Person implements Serializable, Comparable<Person>{
       root false
   }
 
+    String title
+    String suffix
     String firstName
+    String middleName
     String lastName
     String email
     String phoneNumber
@@ -21,9 +24,42 @@ class Person implements Serializable, Comparable<Person>{
 
     String username
 
-    static hasMany = [projects: Project,education:Education,skills:Skill,resumes:Resume]
+    List experiences
+
+    /*List certs*/
+
+    List awards
+
+    List licenses
+
+    List memberships
+   
+
+    static hasMany = [experiences:Experience,
+        projects: Project,
+        education:Education,
+        skills:Skill,
+        resumes:Resume,
+        certs:Certification,
+        awards:Award,
+        licenses:License,
+        memberships:Membership,
+        patents:Patent,
+        interests:String
+    ]
+
     static transients = ["fullName"]
 
+    static constraints = {
+        middleName(nullable: true)
+        title(nullable: true)
+        suffix(nullable: true)
+        certs(nullable: true)
+        awards(nullable: true)
+        licenses(nullable: true)
+        memberships(nullable:true)
+        interests(nullable:true)
+    }
 
     public void setSelectedSkillsById(List ids){
         this.skills = ids.collect{

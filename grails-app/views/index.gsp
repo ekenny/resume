@@ -1,20 +1,27 @@
 <html>
     <head>
-        <title>Welcome to Grails</title>
+        <title>ResuMe</title>
 		<meta name="layout" content="main" />
     </head>
     <body>
-        <h1 style="margin-left:20px;">Welcome to Grails</h1>
-        <p style="margin-left:20px;width:80%">Congratulations, you have successfully started your first Grails application! At the moment
-        this is the default page, feel free to modify it to either redirect to a controller or display whatever
-        content you may choose. Below is a list of controllers that are currently deployed in this application,
-        click on each to execute its default action:</p>
-        <div class="dialog" style="margin-left:20px;width:60%;">
-            <ul>
-              <g:each var="c" in="${grailsApplication.controllerClasses}">
-                    <li class="controller"><g:link controller="${c.logicalPropertyName}">${c.fullName}</g:link></li>
-              </g:each>
-            </ul>
+        
+        <div id="home">
+            <p style="margin-left:80px;width:80%">It's all about <em>me</em>...  &nbsp; well, ok, and you too...
+          </p>
+          <br/>
+          <div id="homeLt">
+          <a href=""  title="Search the skills database to find a person who matches your need">
+          <img src="images/Search-icon.png" width="125" height="125"  />
+          <br/> (You)<br/>
+          </a>
+          </div>
+          <div id="homeRt">
+          <a href="person/home/"  title="Update your information">
+          <img src="images/juggler.png" width="125" height="125" />
+            <br/> (Me)<br/>
+            </a>
+          </div>
         </div>
+      <br/> <br/><p>&nbsp;</p><br/>
     </body>
 </html>

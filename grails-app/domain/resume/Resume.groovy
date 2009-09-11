@@ -19,6 +19,7 @@ class Resume implements Serializable, Comparable<Resume>{
     String name
     String profile
 
+    
     static hasMany = [skills:ResumeSkillLink,projects:ResumeProjectLink,education:ResumeEducationLink]
 
     static constraints = {
